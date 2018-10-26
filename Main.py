@@ -5,7 +5,6 @@ import datetime as datetime
 import gmail as gmail
 import json
 
-
 def ordering(label):
     now_date = str(datetime.datetime.now())
     retunCode = send_gmain()
@@ -30,10 +29,10 @@ def send_gmain():
     cc =  msgs['cc'] #'to_user@gmail.com'
     body = loadBody()
 
-    print(sendUsername)
-    print(sendUserPassword)
-    print(subject)
-    print(toAddr)
+    #print(sendUsername)
+    #print(sendUserPassword)
+    #print(subject)
+    #print(toAddr)
     #print(body)
 
     # メールサーバに接続して、ログインとメール送信
@@ -110,7 +109,7 @@ def main():
     button.pack()
 
     # Label2 Create
-    history_label = tk.Label(root, text='',font=labelFont)
+    history_label = tk.Label(root, text='',font=labelFont,bg="#0059b3")
     history_label.pack()
 
     # Main Window Loop(NonClosing Process)
