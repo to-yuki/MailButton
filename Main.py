@@ -12,9 +12,8 @@ def ordering(label):
         label['text'] = '前回メール配信日時：' + now_date
         print('前回メール配信日時：' + now_date)
         messagebox.showinfo('MailSended!', now_date + '\nメールが送信されました')
-        writeHistory(now_date + ' : メールが送信されました\r\n')
+        writeHistory('[INFO] : ' + now_date + ' : メールが送信されました\n')
     else:
-        writeHistory(now_date + ' : メール送信に失敗しました\r\n')
         messagebox.showerror('MailSendedError!', now_date + '\nメール送信に失敗しました')
 
 def send_gmain():
@@ -31,11 +30,7 @@ def send_gmain():
     cc =  msgs['cc'] #'to_user@gmail.com'
     body = loadBody()
 
-    #print(sendUsername)
-    #print(sendUserPassword)
-    #print(subject)
-    #print(toAddr)
-    #print(body)
+    #print(msgs)
 
     # メールサーバに接続して、ログインとメール送信
     try:
@@ -55,7 +50,9 @@ def send_gmain():
         except:
             print('メール送信エラーです。')
             return -1
-        print(e)
+        now_date = str(datetime.datetime.now())
+        writeHistory('[ERROR] : ' + now_date + ' : メール送信に失敗しました\n')
+        writeHistory('          ' + str(e) + '\n')
         print('メール送信エラーです。')
         return -1
     return 0

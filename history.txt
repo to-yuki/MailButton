@@ -1,2 +1,6 @@
-2018-10-26 15:44:47.863173 : メール送信に失敗しました
-2018-10-26 15:44:51.968085 : メール送信に失敗しました
+[ERROR] : 2018-10-26 17:49:05.827402 : メール送信に失敗しました
+          STARTTLS extension not supported by server.
+[ERROR] : 2018-10-26 17:49:10.101402 : メール送信に失敗しました
+          STARTTLS extension not supported by server.
+[ERROR] : 2018-10-26 17:50:39.347424 : メール送信に失敗しました
+          STARTTLS extension not supported by server.
