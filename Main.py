@@ -12,7 +12,9 @@ def ordering(label):
         label['text'] = '前回メール配信日時：' + now_date
         print('前回メール配信日時：' + now_date)
         messagebox.showinfo('MailSended!', now_date + '\nメールが送信されました')
+        writeHistory(now_date + ' : メールが送信されました\r\n')
     else:
+        writeHistory(now_date + ' : メール送信に失敗しました\r\n')
         messagebox.showerror('MailSendedError!', now_date + '\nメール送信に失敗しました')
 
 def send_gmain():
@@ -77,6 +79,16 @@ def loadProperties():
     except:
         print('プロパティファイル読み込みエラー')
     return json_dict
+
+def writeHistory(msg):
+    try:
+        wfile = open('history.txt','a')
+        wfile.write(msg)
+        wfile.flush()
+    except:
+        print('FileProcessError')	
+    finally:
+        wfile.close()
 
 def main():
     
